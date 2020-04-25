@@ -11,6 +11,9 @@ License: GPLv3
 
 namespace COVIDPress;
 
+require_once(__DIR__.'/lib/DataSources/euodpCOVID19.php');
+use COVIDPress\DataSources\euodpCOVID19;
+
 class COVIDPressPlugin {
 
     public function __construct()
@@ -37,6 +40,12 @@ class COVIDPressPlugin {
 
     public function loadAdvisorStyles() {
         wp_enqueue_style('COVIDPressAdvisorStyles', plugin_dir_url( __FILE__ ) . 'includes/styles/advisor.css', []);
+    }
+
+    public function getData()
+    {
+        $euodpCOVID19 = new euodpCOVID19();
+        return $euodpCOVID19->getDataByContinent('Europe');
     }
 }
 
