@@ -1,0 +1,25 @@
+.covidpress-advisor {
+    position: fixed;
+    padding: 20px;
+    z-index: 999;
+    width: 100%;
+    min-height: 60px;
+}
+
+.covidpress-advisor.top {
+    top: 0;
+}
+
+.covidpress-advisor.bottom {
+    bottom: 0;
+}
+
+.covidpress-advisor.theme-dark {
+    background-color: black;
+    color: white;
+}
+
+.covidpress-advisor.theme-ligth {
+    background-color: white;
+    color: black;
+}
