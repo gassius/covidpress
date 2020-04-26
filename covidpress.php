@@ -60,7 +60,7 @@ class COVIDPressPlugin {
     public function getNews() : Array
     {
         if($this->simplexmlAvailable) {
-            $EMMNewsBrief = new EMMNewsBrief('es');
+            $EMMNewsBrief = new EMMNewsBrief('en');
             return $EMMNewsBrief->getNews(3);
         }
         return [];
