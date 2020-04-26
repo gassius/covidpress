@@ -1,0 +1,25 @@
+{
+    "name": "gassius/covidpress",
+    "description": "WordPress Plugin to display current COVID-19 related information to your visitors",
+    "type": "wordpress-plugin",
+    "license": "GPLv3",
+    "keywords": ["COVID-19", "EU", "EUvsVirus", "OpenData", "EU-OpenData"],
+    "readme": "/README.md",
+    "homepage": "https://github.com/gassius/covidpress",
+    "authors": [
+      {
+        "name": "Carlos González Rico",
+        "email": "carlos@gonzalezri.co"
+      }
+    ],
+    "archive": {
+      "exclude": [
+        "/.gitignore"
+      ]
+    },
+    "autoload": {
+      "psr-4": {
+        "COVIDPress\\": ["/", "lib/"]
+      }
+    }
+  }
