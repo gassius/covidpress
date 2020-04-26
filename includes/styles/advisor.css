@@ -6,6 +6,7 @@
     min-height: 60px;
     background: transparent;
     font-family: Arial, Helvetica, sans-serif;
+    transition: bottom ease 200ms;
 }
 
 .covidpress-advisor.top {
@@ -13,7 +14,7 @@
 }
 
 .covidpress-advisor.bottom {
-    bottom: 0;
+    bottom: -600px;
 }
 
 .covidpress-advisor-display .covidpress-advisor-display-header {
@@ -167,7 +168,7 @@
     .covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-data {
         font-size: 1.2em;
     }
-    
+
     .covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-data,
     .covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-header {
         text-align: center;

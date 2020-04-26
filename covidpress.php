@@ -42,11 +42,12 @@ class COVIDPressPlugin {
         if ( is_admin() ) {
             return;
         }
-        $this->loadAdvisorStyles();
+        $this->loadAdvisorIncludes();
         include_once __DIR__ .'/includes/templates/advisor.php';
     }
 
-    public function loadAdvisorStyles() {
+    public function loadAdvisorIncludes() {
+        wp_enqueue_script('COVIDPressAdvisorScript', plugin_dir_url( __FILE__ ) . 'includes/js/covidpress.js', [], false, true );
         wp_enqueue_style('COVIDPressAdvisorStyles', plugin_dir_url( __FILE__ ) . 'includes/styles/advisor.css', []);
     }
 
@@ -59,7 +60,7 @@ class COVIDPressPlugin {
     public function getNews() : Array
     {
         if($this->simplexmlAvailable) {
-            $EMMNewsBrief = new EMMNewsBrief('en');
+            $EMMNewsBrief = new EMMNewsBrief('es');
             return $EMMNewsBrief->getNews(3);
         }
         return [];

@@ -7,7 +7,7 @@
  $news = $this->getNews();
 ?>
 
-<div class="covidpress-advisor bottom">
+<div id="covidpress-advisor-container" class="covidpress-advisor bottom">
     <div class="covidpress-advisor-display theme-ligth">
         <div class="covidpress-advisor-display-header">
             <div class="covidpress-advisor-display-title"><h1><?= _('COVID-19 Information') ?></h1></div>
