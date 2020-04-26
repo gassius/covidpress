@@ -12,20 +12,21 @@ class EMMNewsBrief extends DataSource {
         $this->setEndPoint('https://emm.newsbrief.eu/rss/rss?type=rtn&language='.$lang);
     }
 
-    public function getDecodedResponse()
+    public function getDecodedResponse() : Array
     {
         $raw = $this->getResponseBody();
         try {
             $decodedResponse = simplexml_load_string($raw);
-            return  json_decode(json_encode($decodedResponse), false);
+            $asObject = json_decode(json_encode($decodedResponse), false);
+            return  $asObject->channel->item;
         } catch (\Throwable $th) {
-            throw new \Exception(_('Error decoding the EMMNewsBrief DataSource'), 0, $th);
+            return [];
         }
     }
 
     public function getNews(int $limit = 0, Array $categories = ['CoronavirusInfection']) : Array
     {
-        $newsItems = $this->getDecodedResponse()->channel->item;
+        $newsItems = $this->getDecodedResponse();
         $filteredNews = array_filter($newsItems, function ($item) use ($categories) {
             $itemAsArray = (array)$item;
             if (key_exists('category', $itemAsArray)) {

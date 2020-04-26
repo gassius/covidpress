@@ -12,14 +12,14 @@ class euodpCOVID19 extends DataSource {
         $this->setEndPoint('https://opendata.ecdc.europa.eu/covid19/casedistribution/json');
     }
 
-    public function getDecodedResponse()
+    public function getDecodedResponse() : Array
     {
         $raw = $this->getResponseBody();
         try {
             $decodedResponse = json_decode($raw);
             return $decodedResponse->records;
         } catch (\Throwable $th) {
-            throw new \Exception(_('Error decoding the euodpCOVID19 DataSource'), 0, $th);
+           return [];
         }
     }
 
