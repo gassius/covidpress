@@ -19,8 +19,13 @@ use COVIDPress\DataSources\EMMNewsBrief;
 
 class COVIDPressPlugin {
 
+
+    protected $simplexmlAvailable = true;
+
     public function __construct()
     {
+        $this->simplexmlAvailable = extension_loaded('simplexml');
+
         add_action('admin_menu', [ $this, 'initAdminSettings' ] );
         add_action('wp_footer', array($this,'displayCOVIDpressAdvisor'), 11);
     }
@@ -45,16 +50,19 @@ class COVIDPressPlugin {
         wp_enqueue_style('COVIDPressAdvisorStyles', plugin_dir_url( __FILE__ ) . 'includes/styles/advisor.css', []);
     }
 
-    public function getData()
+    public function getData() : Array
     {
         $euodpCOVID19 = new euodpCOVID19();
         return $euodpCOVID19->getDataByContinent('Europe');
     }
 
-    public function getNews()
+    public function getNews() : Array
     {
-        $EMMNewsBrief = new EMMNewsBrief('en');
-        return $EMMNewsBrief->getNews(3);
+        if($this->simplexmlAvailable) {
+            $EMMNewsBrief = new EMMNewsBrief('en');
+            return $EMMNewsBrief->getNews(3);
+        }
+        return [];
     }
 }
 
