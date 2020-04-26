@@ -126,14 +126,17 @@
     color: #b83a00;
 }
 
-.covidpress-advisor-display.theme-ligth  a,
-.covidpress-advisor-display.theme-dark  a:hover {
+.covidpress-advisor-display.theme-ligth  a {
     color: #1f1297;
 }
 
 .covidpress-advisor-display.theme-dark  a,
 .covidpress-advisor-display.theme-ligth  a:hover {
-    color: #a5a0d6;
+    color: #88cddf;
+}
+
+.covidpress-advisor-display.theme-dark  a:hover {
+    color: #44bfdd;
 }
 
 .covidpress-advisor-display-footer {
