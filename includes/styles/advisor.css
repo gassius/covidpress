@@ -1,9 +1,11 @@
 .covidpress-advisor {
     position: fixed;
-    padding: 20px;
-    z-index: 999;
+    padding: 25px;
+    z-index: 99999;
     width: 100%;
     min-height: 60px;
+    background: transparent;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .covidpress-advisor.top {
@@ -14,12 +16,177 @@
     bottom: 0;
 }
 
-.covidpress-advisor.theme-dark {
-    background-color: black;
+.covidpress-advisor-display .covidpress-advisor-display-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+}
+
+.covidpress-advisor-display-title {
+    flex: 5 1;
+}
+
+.covidpress-advisor-display  .covidpress-advisor-display-dismiss {
+    flex: 1;
+    text-align: right;
+    cursor: pointer;
+}
+
+.covidpress-advisor-display {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 1px grey;
+}
+
+.covidpress-advisor-display a {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.covidpress-advisor-display h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+    margin: 0;
+    padding: 0;
+}
+
+.covidpress-advisor-display h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+}
+
+.covidpress-advisor-display .covidpress-advisor-display-content {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+}
+
+.covidpress-advisor-display .covidpress-advisor-display-data {
+    flex: 1 1;
+}
+
+.covidpress-advisor-display .news-block {
+    flex: 2 1;
+}
+
+.covidpress-advisor-display .covidpress-advisor-display-data {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+}
+
+.covidpress-advisor-display .covidpress-advisor-display-data .covidpress-advisor-display-data-element {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-header {
+    font-size: 1.2em;
+}
+
+.covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-data {
+    font-size: 1.8em;
+}
+
+.covidpress-advisor-display .news-block .news-item {
+    margin: 10px 0;
+}
+
+.covidpress-advisor-display .news-source {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
+    color: rgb(105, 101, 101);
+}
+
+.covidpress-advisor-display.theme-dark {
+    background-color: rgba(63, 59, 59, 0.95);
     color: white;
 }
 
-.covidpress-advisor.theme-ligth {
-    background-color: white;
+.covidpress-advisor-display.theme-ligth {
+    background-color: rgba(238, 235, 235, 0.95);
     color: black;
+}
+
+.covidpress-advisor-display.theme-dark  h1,
+.covidpress-advisor-display.theme-dark  h2 {
+    color: #ff8f5c;
+}
+
+.covidpress-advisor-display.theme-ligth h1,
+.covidpress-advisor-display.theme-ligth h2,
+.covidpress-advisor-display.theme-ligth a#covidpress-advisor-dismiss {
+    color: #b83a00;
+}
+
+.covidpress-advisor-display.theme-ligth  a,
+.covidpress-advisor-display.theme-dark  a:hover {
+    color: #1f1297;
+}
+
+.covidpress-advisor-display.theme-dark  a,
+.covidpress-advisor-display.theme-ligth  a:hover {
+    color: #a5a0d6;
+}
+
+.covidpress-advisor-display-footer {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: right;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
+    color: rgb(105, 101, 101);
+}
+
+
+@media only screen and (max-width: 400px) {
+
+    .covidpress-advisor-display .covidpress-advisor-display-content {
+        flex-direction: column;
+    }
+
+    .covidpress-advisor-display .covidpress-advisor-display-data {
+        flex-direction: column;
+        flex-wrap: wrap; 
+    }
+
+    .covidpress-advisor-display .news-block .news-item:last-child {
+        display: none;
+    }
+
+    .covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-header {
+        font-size: 1em;
+    }
+    
+    .covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-data {
+        font-size: 1.2em;
+    }
+    
+    .covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-data,
+    .covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-header {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+
+    .covidpress-advisor-display .news-block {
+        display: none;
+    }
+
+    .covidpress-advisor-display .covidpress-advisor-display-data {
+        align-items: center;
+    }
+
+    .covidpress-advisor-display-footer,
+    .covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-data,
+    .covidpress-advisor-display-data-element .covidpress-advisor-display-data-element-header {
+        text-align: center;
+    }
 }
