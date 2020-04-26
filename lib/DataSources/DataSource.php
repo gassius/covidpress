@@ -8,18 +8,18 @@ abstract class DataSource {
     
     protected $headers = [];
 
-    static $response = null;
+    protected $response = null;
 
     private function fetch() 
     {
-        if (!self::$response) {
+        if (!$this->response) {
             try {
-                self::$response = wp_remote_get( $this->endpoint,  $this->headers);
+                $this->response = wp_remote_get( $this->endpoint,  $this->headers);
             } catch (\Throwable $th) {
                 throw $th;
             }
         }
-        return self::$response;
+        return $this->response;
     }
 
     protected function setEndPoint($endpoint) : String
@@ -34,7 +34,7 @@ abstract class DataSource {
 
     protected function getResponse()
     {
-        if (!self::$response) {
+        if (!$this->response) {
             $this->fetch();
         }
         return $this->response;
@@ -42,18 +42,18 @@ abstract class DataSource {
 
     protected function getResponseBody()
     {
-        if (!self::$response) {
+        if (!$this->response) {
             $this->fetch();
         }
-        return wp_remote_retrieve_body(self::$response);
+        return wp_remote_retrieve_body($this->response);
     }
 
     protected function getResponseCode()
     {
-        if (!self::$response) {
+        if (!$this->response) {
             $this->fetch();
         }
-        return wp_remote_retrieve_response_code(self::$response);
+        return wp_remote_retrieve_response_code($this->response);
     }
 
     abstract function getDecodedResponse();

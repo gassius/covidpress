@@ -12,7 +12,10 @@ License: GPLv3
 namespace COVIDPress;
 
 require_once(__DIR__.'/lib/DataSources/euodpCOVID19.php');
+require_once(__DIR__.'/lib/DataSources/EMMNewsBrief.php');
+
 use COVIDPress\DataSources\euodpCOVID19;
+use COVIDPress\DataSources\EMMNewsBrief;
 
 class COVIDPressPlugin {
 
@@ -46,6 +49,12 @@ class COVIDPressPlugin {
     {
         $euodpCOVID19 = new euodpCOVID19();
         return $euodpCOVID19->getDataByContinent('Europe');
+    }
+
+    public function getNews()
+    {
+        $EMMNewsBrief = new EMMNewsBrief('en');
+        return $EMMNewsBrief->getNews(3);
     }
 }
 
