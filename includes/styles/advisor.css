@@ -105,6 +105,15 @@
     color: rgb(105, 101, 101);
 }
 
+.covidpress-advisor-display-footer {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: right;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
+    color: rgb(105, 101, 101);
+}
+
 .covidpress-advisor-display.theme-dark {
     background-color: rgba(63, 59, 59, 0.95);
     color: white;
@@ -139,15 +148,11 @@
     color: #44bfdd;
 }
 
-.covidpress-advisor-display-footer {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: right;
-    font-size: 0.8em;
-    margin: 0;
-    padding: 0;
-    color: rgb(105, 101, 101);
-}
 
+.covidpress-advisor-display.theme-dark .covidpress-advisor-display-footer,
+.covidpress-advisor-display.theme-dark .news-source {
+    color: rgb(165, 163, 163);
+}
 
 @media only screen and (max-width: 400px) {
 
